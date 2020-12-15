@@ -46,8 +46,7 @@ router.post("/api/notes", (req, res) => {
 });
 
 router.delete("/api/notes/:id", (req, res) => {
-    var unwantedNote = req.params.id;
-    console.log(unwantedNote);
+    const unwantedNote = req.params.id;
 
     getNotes().then((notes) => {
         const allNotes = JSON.parse(notes);
