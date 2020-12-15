@@ -25,7 +25,7 @@ const addNotes = (note) => {
         allNotes.push(updatedNote);
         writeFile(path.join(__dirname, "../db/db.json"), JSON.stringify(allNotes)).then((newNotes) => newNotes);
     });
- }
+ };
 
 router.get("/api/notes", (req, res) => {
     //do stuff on route hits
