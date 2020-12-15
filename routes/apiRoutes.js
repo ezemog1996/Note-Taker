@@ -45,4 +45,20 @@ router.post("/api/notes", (req, res) => {
     });
 });
 
+router.delete("/api/notes/:id", (req, res) => {
+    var unwantedNote = req.params.id;
+    console.log(unwantedNote);
+
+    getNotes().then((notes) => {
+        const allNotes = JSON.parse(notes);
+        for (i = 0; i < allNotes.length; i++) {
+            if (allNotes[i].id === unwantedNote) {
+                allNotes.splice(i, 1);
+                writeFile(path.join(__dirname, "../db/db.json"), JSON.stringify(allNotes)).then((updatedNotes) => updatedNotes);
+            }
+        }
+    });
+    res.end();
+})
+
 module.exports = router;

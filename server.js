@@ -21,5 +21,5 @@ server.use(apiRoutes);
 server.use(htmlRoutes);
 
 server.listen(PORT, () => {
-    console.log("Listenindg on PORT: " + PORT + ".....");
+    console.log("Listening on PORT: " + PORT + ".....");
 })
